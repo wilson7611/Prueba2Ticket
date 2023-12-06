@@ -33,8 +33,8 @@
             <!-- resources/views/afiliados/index.blade.php -->
             <form action="{{ route('afiliados.validar') }}" method="post">
                 @csrf
-                <label for="ci" class="form-label">Ingrese CI del Afiliado:</label>
-                <input type="text" name="ci" class="form-control" required>
+                <label for="ci" class="form-label">Ingrese Cedula de Identidad del Afiliado:</label>
+                <input type="text" name="ci" class="form-control" autofocus required>
                 <br>
                 <button type="submit" class="btn btn-success">Validar Afiliado</button>
             </form>
