@@ -28,6 +28,11 @@ use App\Http\Controllers\TicketController;
 // Route::get('/validar-afiliado', [AfiliadoController::class],'validarAfiliadoForm')->name('validarAfiliadoForm');
 // Route::post('/validar-afiliado', [AfiliadoController::class], 'validarAfiliado')->name('validarAfiliado');
 
+Route::get('/', function () {
+    return redirect()->route('afiliados.index');
+});
+
+
 // routes/web.php
 Route::get('/afiliados', [AfiliadoController::class, 'index'])->name('afiliados.index');
 Route::post('/afiliados/validar', [AfiliadoController::class, 'validarAfiliado'])->name('afiliados.validar');
