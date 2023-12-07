@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AfiliadoController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,12 @@ Route::get('/validar-afiliado', [AfiliadoController::class, 'validarAfiliadoForm
 
 Route::get('/afiliados/registrar/{afiliado}/{especialidad}', [TicketController::class, 'registrarForm'])->name('afiliados.registrar');
 Route::post('/afiliados/registrar', [TicketController::class, 'registrar'])->name('afiliados.registrar.post');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::middleware(['auth', 'admin'])->group(function () {
+//     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+//     // Agrega otras rutas de administración según sea necesario
+// });
