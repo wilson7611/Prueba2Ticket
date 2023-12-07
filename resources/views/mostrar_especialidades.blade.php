@@ -27,7 +27,7 @@
                             <!-- Otros detalles de la especialidad -->
                     
                             <!-- Enlace para registrar -->
-                            <a class="btn btn-success" href="{{ route('afiliados.registrar', ['afiliado' => $afiliado->id, 'especialidad' => $especialidad->id]) }}">
+                            <a class="btn btn-success" href="{{ route('afiliados.registrar', ['afiliado' => $afiliado->id, 'especialidad' => $especialidad->id, 'medico' => $medico->id, 'hospital' => $hospital->id]) }}">
                                 Registrar
                             </a>
                         </div>

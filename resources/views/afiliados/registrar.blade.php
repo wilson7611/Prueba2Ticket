@@ -20,12 +20,15 @@
                     @csrf
                     <input type="hidden" name="afiliado_id" value="{{ $afiliado->id }}">
                     <input type="hidden" name="especialidad_id" value="{{ $especialidad->id }}">
+                    {{-- <input type="hidden" name="medico_id" value="{{ $medico->id }}"> --}}
 
                     <h2>Registrar Ticket</h2>
 
+                    <p>Hospital: {{ $hospital->nombre}}</p>
+                    <p>Especialidad: {{ $especialidad->nombre }}</p>
+                    <p>Medico: {{ $medico->nombre_completo }}</p>
                     <p>Afiliado: {{ $afiliado->nombre_completo }}</p>
                     <p>CI: {{ $afiliado->ci }}</p>
-                    <p>Especialidad: {{ $especialidad->nombre }}</p>
                     
                     <label for="" class="form-label">Fecha</label>
                     <input type="date" class="form-control">

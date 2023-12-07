@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AfiliadoController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EspecialidadController;
+use App\Http\Controllers\MedicoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +43,7 @@ Route::post('/afiliados/validar', [AfiliadoController::class, 'validarAfiliado']
 Route::get('/afiliados/especialidades', [AfiliadoController::class, 'especialidades'])->name('afiliados.especialidades');
 Route::get('/validar-afiliado', [AfiliadoController::class, 'validarAfiliadoForm'])->name('validarAfiliadoForm');
 
-Route::get('/afiliados/registrar/{afiliado}/{especialidad}', [TicketController::class, 'registrarForm'])->name('afiliados.registrar');
+Route::get('/afiliados/registrar/{afiliado}/{especialidad}/{medico}/{hospital}', [TicketController::class, 'registrarForm'])->name('afiliados.registrar');
 Route::post('/afiliados/registrar', [TicketController::class, 'registrar'])->name('afiliados.registrar.post');
 
 Auth::routes();
@@ -51,3 +54,25 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 //     // Agrega otras rutas de administración según sea necesario
 // });
+
+// Route::get('/medicos/index', [MedicoController::class, 'index']);
+// Route::get('/medicos', [MedicoController::class, 'index']);
+// Route::post('/store', [MedicoController::class, 'store'])->name('store');
+// Route::get('/fetchall', [MedicoController::class, 'fetchAll'])->name('fetchAll');
+// Route::delete('/delete', [MedicoController::class, 'delete'])->name('delete');
+// Route::get('/edit', [MedicoController::class, 'edit'])->name('edit');
+// Route::post('/update', [MedicoController::class, 'update'])->name('update');
+
+
+
+Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index');
+// Route::get('/medicos', [MedicoController::class, 'index']);
+Route::post('/store', [MedicoController::class, 'store'])->name('store');
+Route::get('/fetchall', [MedicoController::class, 'fetchAll'])->name('fetchAll');
+Route::delete('/delete', [MedicoController::class, 'delete'])->name('delete');
+Route::get('/edit', [MedicoController::class, 'edit'])->name('edit');
+Route::post('/update', [MedicoController::class, 'update'])->name('update');
+
+Route::get('/especialidades', [EspecialidadController::class, 'index'])->name('especialidades.index');
+
+Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');

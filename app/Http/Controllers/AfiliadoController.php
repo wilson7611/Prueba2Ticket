@@ -54,7 +54,7 @@ class AfiliadoController extends Controller
                 $especialidad->hospital = $hospital;
             }
 
-            return view('mostrar_especialidades', ['afiliado' => $afiliado, 'especialidades' => $especialidades]);
+            return view('mostrar_especialidades', ['afiliado' => $afiliado, 'especialidades' => $especialidades, 'medico' => $medico, 'hospital' => $hospital]);
         } else {
             return "Afiliado no encontrado. <a href='" . route('afiliados.index') . "'>Volver</a>";
         }

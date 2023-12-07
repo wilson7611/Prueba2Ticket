@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use App\Models\Afiliado;
 use App\Models\Especialidad;
+use App\Models\Hospital;
+use App\Models\Medico;
+use App\Models\Hora;
+use App\Models\Atencion;
+use App\Models\Empresa;
+
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -14,7 +20,7 @@ class TicketController extends Controller
         $afiliado = $request->get('afiliado');
         $especialidades = Especialidad::all();
 
-        return view('registrar_ticket', ['cliente' => $afiliado, 'especialidades' => $especialidades]);
+        return view('registrar_ticket', ['afiliado' => $afiliado, 'especialidades' => $especialidades]);
     }
 
     public function registrarTicket(Request $request)
@@ -35,11 +41,11 @@ class TicketController extends Controller
      * Display a listing of the resource.
      */
 
-    public function registrarForm(Afiliado $afiliado, Especialidad $especialidad)
+    public function registrarForm(Afiliado $afiliado, Especialidad $especialidad, Medico $medico, Hospital $hospital)
     {
         // Puedes obtener más datos necesarios para el formulario
         // Por ejemplo, obtener médicos según la especialidad, etc.
-        return view('afiliados.registrar', ['afiliado' => $afiliado, 'especialidad' => $especialidad]);
+        return view('afiliados.registrar', ['afiliado' => $afiliado, 'especialidad' => $especialidad, 'medico' => $medico, 'hospital' => $hospital]);
     }
 
     public function registrar(Request $request)
@@ -51,7 +57,16 @@ class TicketController extends Controller
     }
     public function index()
     {
-        //
+        $tickets = Ticket::with([
+            'afiliados',
+            'medicos',
+            'medicos.especialidades',
+            'medicos.especialidades.hospital',
+            'medicos.atenciones',
+            'medicos.atenciones.horas',
+        ])->get();
+
+        return view('tickets.index', compact('tickets'));
     }
 
     /**

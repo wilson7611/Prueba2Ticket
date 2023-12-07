@@ -181,7 +181,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('especialidades.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista de Especialidades</p>
                 </a>
@@ -204,7 +204,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('medicos.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista de Medicos</p>
                 </a>
@@ -227,7 +227,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('tickets.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista de Tickets</p>
                 </a>

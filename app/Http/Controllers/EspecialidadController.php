@@ -12,7 +12,9 @@ class EspecialidadController extends Controller
      */
     public function index()
     {
-        //
+        $especialidades = Especialidad::all();
+
+        return view('especialidades.index',compact('especialidades'));
     }
 
     /**
